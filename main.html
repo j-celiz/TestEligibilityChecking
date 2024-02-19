@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Eligibility Dashboard</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .dashboard {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .loading {
+      display: none;
+      margin-top: 20px;
+    }
+    .loading-text {
+      font-style: italic;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="dashboard">
+    <h2>Client Eligibility Dashboard</h2>
+    <button class="button" onclick="checkEligibility()">Check Eligibility</button>
+    <div class="loading">
+        <img src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="Loading...">
+        <p class="loading-text">Checking eligibility...</p>
+    </div>
+    <div class="result"></div>
+</div>
+
+<script>
+    function checkEligibility() {
+      var loadingDiv = document.querySelector('.loading');
+      var resultDiv = document.querySelector('.result');
+
+      loadingDiv.style.display = 'block'; // Show loading visualization
+
+      // Simulate a delay for the loading visualization
+      setTimeout(function() {
+        loadingDiv.style.display = 'none'; // Hide loading visualization
+
+        // Dummy data for eligibility
+        var isEligible = Math.random() < 0.5; // Randomly generate eligibility
+
+        if (isEligible) {
+          resultDiv.innerHTML = '<p>Client is eligible for benefits.</p>';
+        } else {
+          resultDiv.innerHTML = '<p>Client is not eligible for benefits.</p>';
+        }
+      }, 2000); // Simulate 2 seconds delay
+    }
+  </script>
+</body>
+</html>
